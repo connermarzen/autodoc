@@ -34,10 +34,12 @@ class ViewerApp(App):
     """@
     ## Class: ViewerApp
     @"""
+
     CSS_PATH = "styles/main.css"
 
     BINDINGS = [
         Binding(key="o", action="open_file", description="Open File"),
+        Binding(key="t", action="toggle_dark", description="Toggle Light/Dark Mode"),
         Binding(key="q", action="quit", description="Quit"),
     ]
 
@@ -53,22 +55,26 @@ class ViewerApp(App):
         self._parser = Parser(self._config)
         super().__init__(**kwargs)
 
-    def action_open_file(self):
+    async def action_open_file(self):
         widget = self.query_one("#dir-viewer", DirectoryTree)
         widget.toggle_class("hidden")
         self.set_focus(widget)
         self._show_directory = not self._show_directory
 
     @on(DirectoryTree.FileSelected)
-    def on_selected_file(self, event: DirectoryTree.FileSelected):
+    async def on_selected_file(self, event: DirectoryTree.FileSelected):
         widget = self.query_one("#md-viewer", MarkdownViewer)
         if (path := os.path.abspath(event.path)).endswith(".md"):
             with open(path, "r") as file:
                 widget.document.update(file.read())
         elif os.path.isfile(event.path):
             data = self._parser.parse(event.path)
-            print(data)
-            widget.document.update(data)
+            if len(data) == 0:
+                widget.document.update(
+                    "# No documentation.\n\nThis document doesn't contain any special comments to extract."
+                )
+            else:
+                widget.document.update(data)
 
     def compose(self) -> ComposeResult:
         yield MarkdownViewer(id="md-viewer", markdown=WELCOME_MESSAGE)
