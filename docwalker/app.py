@@ -18,9 +18,9 @@ from textual.widgets import DirectoryTree, Footer, MarkdownViewer
 from docwalker.parser import Parser
 
 WELCOME_MESSAGE = """
-# AutoDoc
+# DocWalker
 
-Autodoc is a simple, in-place documentation viewer. It takes advantage of
+DocWalker is a simple, in-place documentation viewer. It takes advantage of
 special comment symbols to read documentation right inside your source code.
 
 ## Getting Started

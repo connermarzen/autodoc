@@ -1,4 +1,4 @@
-# autodoc
+# docwalker
 
 Quickly view documentation in source code in a language-agnostic way.
 
@@ -7,5 +7,5 @@ Quickly view documentation in source code in a language-agnostic way.
 ```shell
 $> pip install .
 
-$> autodoc *directory*
+$> docwalker *directory*
 ```

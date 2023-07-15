@@ -4,10 +4,10 @@ from argparse import ArgumentParser
 from configparser import ConfigParser
 
 _description = """
-autodoc is a quick documentation filter/viewer for examining source code
+DocWalker is a quick documentation filter/viewer for examining source code
 documentation.
 
-By default, autodoc creates a local config file, .dwconf, which hosts the
+By default, DocWalker creates a local config file, .dwconf, which hosts the
 project-specific configuration.
 """
 
@@ -31,7 +31,7 @@ syntax_end = {_default_listing_syntax_end}
 
 """
 
-PARSER = ArgumentParser(prog="autodoc", description=_description)
+PARSER = ArgumentParser(prog="docwalker", description=_description)
 PARSER.add_argument("src_dir", type=str, help="The source directory to examine.")
 PARSER.add_argument(
     "-f",
