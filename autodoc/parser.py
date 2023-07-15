@@ -27,7 +27,6 @@ class Parser:
         elif _line.startswith(self._config["block_syntax_start"]):
             self._block = True
             temp = _line.lstrip(self._config["block_syntax_start"])
-            len(line) - len(temp)
             if len(temp) > 0:
                 self._lines.append(temp)
         elif _line.strip().endswith(self._config["block_syntax_end"]) and self._block:
@@ -36,7 +35,10 @@ class Parser:
             if len(temp) > 0:
                 self._lines.append(temp)
         elif self._block:
-            self._lines.append(line)
+            if len(_line) == 0:
+                self._lines.append("\n")
+            else:
+                self._lines.append(_line)
         # END BLOCK LOGIC
 
         # LISTING LOGIC
