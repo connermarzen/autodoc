@@ -26,7 +26,7 @@ classifiers = [
 dependencies = ["textual"]
 
 [project.optional-dependencies]
-dev = ["textual[dev]"]
+dev = ["textual-dev"]
 
 [project.scripts]
 autodoc = "autodoc.__main__:main"
