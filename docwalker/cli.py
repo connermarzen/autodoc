@@ -7,7 +7,7 @@ _description = """
 autodoc is a quick documentation filter/viewer for examining source code
 documentation.
 
-By default, autodoc creates a local config file, .autodoc, which hosts the
+By default, autodoc creates a local config file, .dwconf, which hosts the
 project-specific configuration.
 """
 
@@ -37,11 +37,11 @@ PARSER.add_argument(
     "-f",
     "--file",
     type=str,
-    help="The config file to reference for custom parsing [default: '<src_dir>/.autodoc']",
+    help="The config file to reference for custom parsing [default: '<src_dir>/.dwconf']",
 )
 
 
-def generate_config(path: str = ".autodoc") -> dict:
+def generate_config(path: str = ".dwconf") -> dict:
     output = {}
     if not os.path.exists(path):
         with open(path, "w+") as file:

@@ -15,7 +15,7 @@ from textual.app import App, ComposeResult
 from textual.binding import Binding
 from textual.widgets import DirectoryTree, Footer, MarkdownViewer
 
-from autodoc.parser import Parser
+from docwalker.parser import Parser
 
 WELCOME_MESSAGE = """
 # AutoDoc
