@@ -31,5 +31,5 @@ dev = ["textual-dev"]
 [project.scripts]
 autodoc = "autodoc.__main__:main"
 
-[tool.setuptools]
-package-data = {"autodoc" = ["autodoc/styles/*.css"]}
+[tool.setuptools.package-data]
+autodoc = ["autodoc/styles/*.css"]
