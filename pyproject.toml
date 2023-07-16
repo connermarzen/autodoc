@@ -1,12 +1,11 @@
-[project]
+[tool.poetry]
 name = "docwalker"
-version = "1.0.0"
-description = "Quickly view documentation in source code in a language-agnostic way." 
+version = "1.0.1"
+description = "Quickly view documentation in source code in a language-agnostic way."
+authors = ["Conner Marzen <connermarzen@gmail.com>"]
+license = "MIT"
 readme = "README.md"
-requires-python = ">=3.7"
-license = {file = "LICENSE"}
 keywords = ["tui", "documentation", "viewer"]
-authors = [{name = "Conner Marzen", email = "connermarzen@gmail.com" }]
 classifiers = [
   # How mature is this project? Common values are
   #   3 - Alpha
@@ -23,13 +22,21 @@ classifiers = [
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3 :: Only",
 ]
-dependencies = ["textual"]
+packages = [
+    { include = "docwalker" },
+    { include = "docwalker/styles/*.css" },
+]
 
-[project.optional-dependencies]
-dev = ["textual-dev"]
-
-[project.scripts]
+[tool.poetry.scripts]
 docwalker = "docwalker.__main__:main"
 
-[tool.setuptools.package-data]
-docwalker = ["docwalker/styles/*.css"]
+[tool.poetry.dependencies]
+python = "^3.7"
+textual = "^0.29.0"
+
+[tool.poetry.group.dev.dependencies]
+textual-dev = "^1.0.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

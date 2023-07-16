@@ -9,4 +9,3 @@ syntax_end = @"""
 [parser.listing]
 syntax_start = #<<
 syntax_end = #>>
-

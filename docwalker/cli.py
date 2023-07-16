@@ -14,8 +14,8 @@ project-specific configuration.
 _default_inline_syntax = "#@"
 _default_block_syntax_start = "/*@"
 _default_block_syntax_end = "@*/"
-_default_listing_syntax_start = "<<<"
-_default_listing_syntax_end = ">>>"
+_default_listing_syntax_start = "#<<"
+_default_listing_syntax_end = "#>>"
 
 _default_config = f"""
 [parser.inline]
