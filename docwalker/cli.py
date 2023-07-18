@@ -32,12 +32,18 @@ syntax_end = {_default_listing_syntax_end}
 """
 
 PARSER = ArgumentParser(prog="docwalker", description=_description)
-PARSER.add_argument("src_dir", type=str, help="The source directory to examine.")
+PARSER.add_argument(
+    "-d",
+    "--dir",
+    type=str,
+    default=".",
+    help="The source directory to examine. [default: the current directory '.']",
+)
 PARSER.add_argument(
     "-f",
     "--file",
     type=str,
-    help="The config file to reference for custom parsing [default: '<src_dir>/.dwconf']",
+    help="The config file to reference for custom parsing [default: '<dir>/.dwconf']",
 )
 
 

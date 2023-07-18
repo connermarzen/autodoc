@@ -1,13 +1,10 @@
 class Parser:
     def __init__(self, config: dict) -> None:
         self._config = config
-
         self._lines = []
-
         self._block = False
-        self._block_len = 0
-
         self._listing = False
+        self._continuous = False
 
     def parse(self, path: str) -> str:
         self._lines = []
@@ -20,11 +17,18 @@ class Parser:
         _line = line.lstrip()
         # NORMAL LOGIC
         if _line.startswith(self._config["inline_syntax"]):
-            self._lines.append(_line.lstrip(self._config["inline_syntax"]) + "\n")
+            self._lines.append(
+                _line.lstrip(self._config["inline_syntax"])
+                + ("\n" if self._continuous else "")
+            )
+            self._continuous = True
+            return
+        else:
+            self._continuous = False
         # END NORMAL LOGIC
 
         # BLOCK LOGIC
-        elif _line.startswith(self._config["block_syntax_start"]):
+        if _line.startswith(self._config["block_syntax_start"]):
             self._block = True
             temp = _line.lstrip(self._config["block_syntax_start"])
             if len(temp) > 0:
@@ -34,6 +38,7 @@ class Parser:
             temp = _line.strip().rstrip(self._config["block_syntax_end"])
             if len(temp) > 0:
                 self._lines.append(temp)
+            self._lines.append("\n")
         elif self._block:
             if len(_line) == 0:
                 self._lines.append("\n")

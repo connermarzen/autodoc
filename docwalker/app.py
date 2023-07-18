@@ -31,10 +31,6 @@ its documentation.
 
 
 class ViewerApp(App):
-    """@
-    ## Class: ViewerApp
-    @"""
-
     CSS_PATH = "styles/main.css"
 
     BINDINGS = [
@@ -44,11 +40,6 @@ class ViewerApp(App):
     ]
 
     def __init__(self, src_dir: str, config: dict, **kwargs):
-        """@
-        ### def __init__
-
-        Initialization function.
-        @"""
         self._show_directory = False
         self._src_dir = src_dir
         self._config = config
