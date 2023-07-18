@@ -1,3 +1,5 @@
+![docwalker_windows_screenshot](./doc/windows_screenshot.png)
+
 # docwalker
 
 [![PyPI version](https://badge.fury.io/py/docwalker.svg)](https://badge.fury.io/py/docwalker)
