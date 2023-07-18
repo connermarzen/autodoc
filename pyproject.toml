@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "docwalker"
-version = "1.0.1"
+version = "1.0.2"
 description = "Quickly view documentation in source code in a language-agnostic way."
 authors = ["Conner Marzen <connermarzen@gmail.com>"]
 license = "MIT"
@@ -11,7 +11,7 @@ classifiers = [
   #   3 - Alpha
   #   4 - Beta
   #   5 - Production/Stable
-  "Development Status :: 3 - Alpha",
+  "Development Status :: 4 - Beta",
   "Intended Audience :: Developers",
   "License :: OSI Approved :: MIT License",
   "Programming Language :: Python :: 3",
